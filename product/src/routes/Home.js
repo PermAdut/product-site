@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function Home() {
   return (
     <div>
-      <main className='home__main'>
+      <main>
         <section className='home'>
           <div className='home__text'>
             <h3 className='home__title'>Best online shop of the year</h3>
