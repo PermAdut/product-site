@@ -23,7 +23,7 @@ export default function Cart() {
               return(
               <li>
                 <div className='cart__product__item'>
-                  <img className='cart__product__img' src={`/images/${product.img}`} alt='product'/>
+                  <img className='cart__product__img' src={`${process.env.PUBLIC_URL}/images/${product.img}`} alt='product'/>
                   <div className='cart__product__content'>
                     <h3 className='cart__product__name'>{product.name}</h3>
                     <p className='cart__product__price'>$ {product.price.toFixed(2)}</p>

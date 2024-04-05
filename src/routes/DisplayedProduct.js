@@ -38,7 +38,7 @@ export default function DisplayedProduct(props) {
                 <NavLink className='back' onClick={() => {navigate(-1)}}> ← Back to all products</NavLink>
                 <div className='displayed__flex__content'>
                     <div className='displayed__content'>
-                        <img className='displayed__img' src={`/images/${props.prop.img}`} alt='product' />
+                        <img className='displayed__img' src={`${process.env.PUBLIC_URL}/images/${props.prop.img}`} alt='product' />
                     </div>
                     <div className='displayed__text'>
                         <h3 className='displayed__title'>{props.prop.name}</h3>

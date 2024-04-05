@@ -34,7 +34,7 @@ export default function ProductItem(props) {
     <div className='product__item'>
       <NavLink to={`/catalog/${props.prop.id}`} className="product__link" >
         <div>
-          <img src={`/images/${props.prop.img}`} alt='product' className='product__item__img' />
+          <img src={`${process.env.PUBLIC_URL}/images/${props.prop.img}`} alt='product' className='product__item__img' />
         </div>
       </NavLink>
       <hr />  
