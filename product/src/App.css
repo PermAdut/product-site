@@ -70,20 +70,12 @@ main{
 #root{
   display: grid;
   grid-template-rows: min-content 1fr min-content;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
 }
 
-.home{
-  min-height: 100vh;
-}
-
-.contact{
-  min-height: 100vh;
-}
-
-.cart__sec{
-  min-height: 100vh;
+.home, .contact, .cart__sec, .catalog{
+  min-height: calc(100vh - 160px - 128px);
 }
 
 /* header */
