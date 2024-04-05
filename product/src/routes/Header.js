@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-export default function Header(props) {
-  
+export default function Header() {
+  const cartCount = useSelector((state) => state.cartCount)
   return (
     <div>
       <header className='header'>
@@ -20,14 +20,13 @@ export default function Header(props) {
               return isActive ? {color: "rgb(134, 239, 172)", textDecoration: "underline"} : {}
             }} >Contact</NavLink></li>
             <li className='nav__flex__item'><NavLink className="cart" to="/cart"><p 
-            className='cart__elements' style={{backgroundColor:checkItems(props.count).color}}>{checkItems(props.count).count}</p></NavLink></li>
+            className='cart__elements' style={{backgroundColor:checkItems(cartCount).color}}>{checkItems(cartCount).count}</p></NavLink></li>
           </ul>
         </nav>
       </header>
     </div>
   )
 }
-
 
 function checkItems(prop) {
   if (prop < 1) return {

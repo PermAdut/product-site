@@ -5,13 +5,6 @@
   border: 0 solid #e5e7eb;
 }
 
-#root{
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-  min-height: auto;
-  width: 100%;
-}
-
 html{
   -webkit-text-size-adjust: 100%;
   font-feature-settings: normal;
@@ -20,6 +13,15 @@ html{
   line-height: 1.5;
   -moz-tab-size: 4;
   tab-size: 4;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  text-transform: none;
+  background-image: none;
+  background-color: transparent;
 }
 
 h1,h2,h3,h4,h5,h6,p,hr{
@@ -40,7 +42,6 @@ a{
 
 img{
   display: block;
-  vertical-align: middle;
   height: auto;
   max-width: 100%;
 }
@@ -63,7 +64,31 @@ main{
   padding-right: 1.75rem;
   background: url(../public/images/home.jpg) no-repeat bottom/cover;
 }
+
+
+
+#root{
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.home{
+  min-height: 100vh;
+}
+
+.contact{
+  min-height: 100vh;
+}
+
+.cart__sec{
+  min-height: 100vh;
+}
+
 /* header */
+
+
 
 .header{
   display: flex;
@@ -311,6 +336,111 @@ main{
   opacity: 0.8; 
 }
 
+.cart__items{
+  flex-direction: column;
+  display: flex;
+  gap:2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.cart__product__item{
+  text-align: left;
+  align-items: flex-end;
+  flex-direction: row;
+  --tw-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+  padding: 1.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255/var(--tw-bg-opacity));
+  border-radius: 1rem;
+  gap:2rem;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.cart__product__img{
+  object-fit: contain;
+  max-width: 150px;
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.cart__product__content{
+  gap: 1.5rem;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+
+}
+
+.cart__product__name{
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39/var(--tw-text-opacity));
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  max-width: 300px;
+}
+
+.cart__product__price{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.add__remove{
+  justify-content: flex-start;
+  display: flex;
+  gap:1.25rem;
+  align-items: center;
+}
+
+.minus{
+  background: url(../public/images/minus.svg) no-repeat 50%/cover;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.plus{
+  background: url(../public/images/plus.svg) no-repeat 50%/cover;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.delete{
+  width: 1.75rem;
+  height: 1.75rem;
+  top:.5rem;
+  right: .5rem;
+  position: absolute;
+  cursor: pointer;
+  background: url(../public/images/cross.svg) no-repeat 50%/cover;
+}
+
+.minus:hover,
+.plus:hover,
+.delete:hover{
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  opacity: 0.8; 
+}
+
+
+.cart__bottom__price{
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  right: 1rem;
+  bottom: .75rem;
+  position: absolute;
+}
+
 /* Cart */
 
 
@@ -394,7 +524,7 @@ main{
 .catalog{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  grid: 2rem;
+  gap: 2rem;
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
@@ -424,8 +554,148 @@ main{
   border-radius: .5rem;
   display: block;
   text-decoration: inherit;
-  
+}
+
+.back:hover{
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  opacity: 0.8; 
+}
+
+.displayed__flex__content{
+  --tw-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+--tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+padding: 30px;
+--tw-bg-opacity: 1;
+background-color: rgb(255 255 255/var(--tw-bg-opacity));
+border-radius: 1.5rem;
+gap:2.5rem;
+width: 100%;
+display: flex;
+}
+
+.displayed__content{
+  max-width: 700px;
+  width: 100%;
 
 }
 
+.displayed__img{
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.displayed__text{
+  gap:1.5rem;
+  flex-direction: column;
+  display: flex;
+}
+
+.displayed__title{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.displayed__price{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.displayed__desc{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.displayed__btn{
+  font-weight: 700;
+  --tw-text-opacity: 1;
+color: rgb(134 239 172/var(--tw-text-opacity));
+font-size: 1.5rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
+padding-left: 1.25rem;
+padding-right: 1.25rem;
+--tw-bg-opacity: 1;
+background-color: rgb(17 24 39/var(--tw-bg-opacity));
+border-radius: .5rem;
+width: 100%;
+cursor: pointer;
+}
+
+.displayed__btn:hover{
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  opacity: 0.8; 
+}
+
 /* DisplayedProduct */
+
+
+/* Contact */
+
+.contact{
+  gap:3.5rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.contact address{
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+}
+
+.my__contacts{
+  gap:4rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+
+}
+
+.my__contacts__flex:hover{
+  transition-duration: .3s;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  opacity: 0.8; 
+}
+
+.my__contacts a{
+  width: 8rem;
+  height: 8rem;
+  background: url(../public/images/git.svg) no-repeat 50%/cover;
+  display: block;
+}
+
+.my__contacts li:last-child a{
+  background: url(../public/images/telegram.png) no-repeat 50%/cover;
+}
+
+.company__text{
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.address__text{
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* Contact */

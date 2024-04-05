@@ -4,29 +4,37 @@ import { NavLink } from 'react-router-dom';
 import { addToCart, updateQuantity } from '../actions';
 
 export default function ProductItem(props) {
-  const [press, setPress] = useState(false)
   
   const dispatch = useDispatch()
-  const cartCount = useSelector(state => state.cartCount)
+  const cartProducts = useSelector(state => state.cartProducts)
 
   const handleAddToCart = () => {
-    if(!press){
-      const product = {
-        ...props.prop,
-        value: 1
-      }
+    const product = {
+      ...props.prop,
+      value: 1
+    }
+    if(!checkAddToCart(product)){
       dispatch(addToCart(product));
-      setPress(true)
     } else{
-      dispatch(updateQuantity(props.prop.id));
+      dispatch(updateQuantity(product));
     }
   };
+
+  const checkAddToCart = (product) => {
+    let isInArray = false
+    cartProducts.forEach(element => {
+        if(element.id === product.id) isInArray = true
+        
+    });
+    return isInArray
+  }
+
 
   return (
     <div className='product__item'>
       <NavLink to={`/catalog/${props.prop.id}`} className="product__link" >
         <div>
-          <img src={`images/${props.prop.img}`} alt='product' className='product__item__img' />
+          <img src={`/images/${props.prop.img}`} alt='product' className='product__item__img' />
         </div>
       </NavLink>
       <hr />  
@@ -34,7 +42,7 @@ export default function ProductItem(props) {
         <h3 className='product__name'>{props.prop.name}</h3>
         <p className='product__price'>$ {props.prop.price}</p>
       </NavLink>
-      <button className='product__btn' onClick={() => handleAddToCart}>Add to cart</button>
+      <button className='product__btn' onClick={handleAddToCart}>Add to cart</button>
     </div>
   );
 
