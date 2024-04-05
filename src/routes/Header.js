@@ -10,7 +10,7 @@ export default function Header() {
         <h1 className='header__title'><NavLink to="/">FakeStore</NavLink></h1>
         <nav className='nav'>
           <ul className='nav__flex'>
-            <li className='nav__flex__item'><NavLink to="/" style={({isActive}) => {
+            <li className='nav__flex__item'><NavLink to="/product-site" style={({isActive}) => {
               return isActive ? {color: "rgb(134, 239, 172)", textDecoration: "underline"} : {}
             }} >Home</NavLink></li>
             <li className='nav__flex__item'><NavLink to="/catalog" style={({isActive}) => {
